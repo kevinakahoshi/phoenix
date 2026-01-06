@@ -24,6 +24,12 @@ defmodule HelloWeb.Router do
     resources "/reviews", ReviewController
   end
 
+  scope "/api", HelloWeb do
+    pipe_through :api
+
+    resources "/reviews", ReviewController
+  end
+
   scope "/admin", HelloWeb.Admin do
     pipe_through :browser
 
