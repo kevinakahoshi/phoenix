@@ -11,6 +11,13 @@ defmodule HelloWeb.Router do
     plug HelloWeb.Plugs.Locale, "en"
   end
 
+  pipeline :auth do
+    plug HelloWeb.Authentication
+    plug :browser
+    plug :ensure_authenticated_user
+    plug :ensure_user_owns_review
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
