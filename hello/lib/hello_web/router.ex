@@ -14,8 +14,8 @@ defmodule HelloWeb.Router do
   pipeline :auth do
     plug HelloWeb.Authentication
     plug :browser
-    plug :ensure_authenticated_user
-    plug :ensure_user_owns_review
+    # plug :ensure_authenticated_user
+    # plug :ensure_user_owns_review
   end
 
   pipeline :api do
@@ -43,6 +43,20 @@ defmodule HelloWeb.Router do
     resources "/images",  ImageController
     resources "/reviews", ReviewController
     resources "/users",   UserController
+  end
+
+  scope "/" do
+    pipe_through [:browser]
+
+    get "/reviews", PostController, :index
+    get "/reviews/:id", PostController, :show
+  end
+
+  scope "/" do
+    pipe_through [:browser, :auth]
+
+    get "/reviews/new", PostController, :new
+    post "/reviews", PostController, :create
   end
 
   # Other scopes may use custom stacks.
