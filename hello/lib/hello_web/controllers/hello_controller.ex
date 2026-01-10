@@ -6,6 +6,7 @@ defmodule HelloWeb.HelloController do
   end
 
   def show(conn, %{"messenger" => messenger}) do
-    render(conn, :show, messenger: messenger)
+    # render(conn, :show, messenger: messenger)
+    text(conn, "From messenger #{messenger}")
   end
 end
