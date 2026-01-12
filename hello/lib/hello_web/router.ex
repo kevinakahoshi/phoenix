@@ -28,6 +28,8 @@ defmodule HelloWeb.Router do
     get "/", PageController, :index
     get "/hello", HelloController, :index
     get "/hello/:messenger", HelloController, :show
+    get "/boop/:message", HelloController, :boop
+    get "/beep/:input", HelloController, :beep
     resources "/reviews", ReviewController
   end
 
