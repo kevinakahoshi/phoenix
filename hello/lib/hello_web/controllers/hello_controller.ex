@@ -10,4 +10,12 @@ defmodule HelloWeb.HelloController do
     # text(conn, "From messenger #{messenger}")
     json(conn, %{id: messenger})
   end
+
+  def boop(conn, %{"message" => message}) do
+    text(conn, "Message: #{message}")
+  end
+
+  def beep(conn, %{"input" => input}) do
+    json(conn, %{input: input, boop: "beep"})
+  end
 end
