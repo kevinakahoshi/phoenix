@@ -15,7 +15,7 @@ defmodule HelloWeb.PageController do
     redirect(conn, to: ~p"/redirect_test")
   end
 
-  def redirect_test(conn) do
+  def redirect_test(conn, _params) do
     render(conn, :home)
   end
 end
