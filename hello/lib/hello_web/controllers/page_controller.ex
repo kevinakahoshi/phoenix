@@ -16,6 +16,7 @@ defmodule HelloWeb.PageController do
   end
 
   def redirect_test(conn, _params) do
-    render(conn, :home)
+    # render(conn, :home)
+      redirect(conn, external: "https://elixir-lang.org/")
   end
 end
