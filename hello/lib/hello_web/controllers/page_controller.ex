@@ -12,7 +12,11 @@ defmodule HelloWeb.PageController do
     # |> put_status(202)
     # |> render(:home)
 
-    redirect(conn, to: ~p"/redirect_test")
+    # redirect(conn, to: ~p"/redirect_test")
+
+    conn
+    |> put_flash(:error, "Let's pretend we have an error.")
+    |> render(:home)
   end
 
   def redirect_test(conn, _params) do
