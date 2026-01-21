@@ -16,11 +16,11 @@ defmodule HelloWeb.PageController do
 
     conn
     |> put_flash(:error, "Let's pretend we have an error.")
-    |> render(:home)
+    |> redirect(to: ~p"/redirect_test")
   end
 
   def redirect_test(conn, _params) do
-    # render(conn, :home)
-      redirect(conn, external: "https://elixir-lang.org/")
+    render(conn, :home)
+    # redirect(conn, external: "https://elixir-lang.org/")
   end
 end
