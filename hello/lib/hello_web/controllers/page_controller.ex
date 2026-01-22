@@ -23,4 +23,8 @@ defmodule HelloWeb.PageController do
     render(conn, :home)
     # redirect(conn, external: "https://elixir-lang.org/")
   end
+
+  def count(conn, _params) do
+    render(conn, :count)
+  end
 end
