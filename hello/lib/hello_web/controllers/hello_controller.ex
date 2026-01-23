@@ -5,6 +5,17 @@ defmodule HelloWeb.HelloController do
     render(conn, :index)
   end
 
+  def count(conn, _params) do
+    render(conn, :count)
+  end
+
+  def list(conn, _params) do
+    list = [1, 2, 3, 4]
+
+    conn
+    |> render(:list)
+  end
+
   def show(conn, %{"messenger" => messenger}) do
     conn
     |> assign(:messenger, messenger)
