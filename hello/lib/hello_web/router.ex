@@ -27,12 +27,13 @@ defmodule HelloWeb.Router do
 
     get "/", PageController, :index
     get "/redirect_test", PageController, :redirect_test
-    get "/count", PageController, :count
 
     get "/hello", HelloController, :index
     get "/hello/:messenger", HelloController, :show
     get "/boop/:message", HelloController, :boop
     get "/beep/:input", HelloController, :beep
+    get "/count", HelloController, :count
+    get "/list", HelloController, :list
     resources "/reviews", ReviewController
   end
 
