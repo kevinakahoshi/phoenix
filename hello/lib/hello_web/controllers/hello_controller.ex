@@ -10,9 +10,10 @@ defmodule HelloWeb.HelloController do
   end
 
   def list(conn, _params) do
-    list = [1, 2, 3, 4]
+    nums = [1, 2, 3, 4, 5]
 
     conn
+    |> assign(:nums, nums)
     |> render(:list)
   end
 
