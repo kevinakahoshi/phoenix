@@ -17,6 +17,14 @@ defmodule HelloWeb.HelloController do
     |> render(:list)
   end
 
+  def conditional(conn, _params) do
+    condition = 5 < 3
+
+    conn
+    |> assign(:condition, condition)
+    |> render(:conditional)
+  end
+
   def show(conn, %{"messenger" => messenger}) do
     conn
     |> assign(:messenger, messenger)
