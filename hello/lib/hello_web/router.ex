@@ -34,6 +34,7 @@ defmodule HelloWeb.Router do
     get "/beep/:input", HelloController, :beep
     get "/count", HelloController, :count
     get "/list", HelloController, :list
+    get "/conditional", HelloController, :conditional
     resources "/reviews", ReviewController
   end
 
