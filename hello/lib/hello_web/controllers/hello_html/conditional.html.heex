@@ -3,3 +3,7 @@
 <% else %>
   <p>Condition was false</p>
 <% end %>
+
+<p :if={@condition}>Inline true</p>
+<p :if={!@condition}>Inline False</p>
+<p>Text conditional: <%= if(@condition, do: "Boop", else: "Beep") %></p>
