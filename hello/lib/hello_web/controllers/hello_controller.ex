@@ -18,7 +18,7 @@ defmodule HelloWeb.HelloController do
   end
 
   def conditional(conn, _params) do
-    condition = 5 < 3
+    condition = 5 > 3
 
     conn
     |> assign(:condition, condition)
