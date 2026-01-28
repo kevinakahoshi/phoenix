@@ -8,15 +8,15 @@ defmodule HelloWeb.PageController do
     # |> put_resp_content_type("text/plain")
     # |> send_resp(201, "")
 
-    # conn
-    # |> put_status(202)
-    # |> render(:home)
+    conn
+    |> put_status(202)
+    |> render(:home)
 
     # redirect(conn, to: ~p"/redirect_test")
 
-    conn
-    |> put_flash(:error, "Let's pretend we have an error.")
-    |> redirect(to: ~p"/redirect_test")
+    # conn
+    # |> put_flash(:error, "Let's pretend we have an error.")
+    # |> redirect(to: ~p"/redirect_test")
   end
 
   def redirect_test(conn, _params) do
