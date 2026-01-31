@@ -41,6 +41,7 @@ defmodule HelloWeb.Router do
   scope "/api", HelloWeb do
     pipe_through :api
 
+    resources "/urls", UrlController, except: [:new, :edit]
     resources "/reviews", ReviewController
   end
 
