@@ -25,6 +25,8 @@ defmodule HelloWeb.Router do
   scope "/", HelloWeb do
     pipe_through :browser
 
+    live "/thermostat", ThermostatLive
+
     get "/", PageController, :index
     get "/redirect_test", PageController, :redirect_test
 

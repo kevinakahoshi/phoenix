@@ -1,5 +1,5 @@
 defmodule HelloWeb.ThermostatLive do
-  use MyAppWeb, :live_view
+  use HelloWeb, :live_view
 
   def render(assigns) do
     ~H"""
