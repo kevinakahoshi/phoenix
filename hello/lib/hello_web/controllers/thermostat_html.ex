@@ -29,6 +29,8 @@ defmodule HelloWeb.ThermostatLive do
   end
 
   def handle_event("name_change", _params, socket) do
-    {:noreply, update(socket, :name, &(&1))}
+    value = &(&1)
+    Logger.info(value)
+    {:noreply, update(socket, :name, value)}
   end
 end
