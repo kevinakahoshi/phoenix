@@ -1,5 +1,6 @@
 defmodule HelloWeb.ThermostatLive do
   use HelloWeb, :live_view
+  require Logger
 
   def render(assigns) do
     ~H"""
@@ -10,7 +11,12 @@ defmodule HelloWeb.ThermostatLive do
     </div>
 
     <%!-- Name: {@name} --%>
-    <input phx-change="name_change" />
+    <%!-- <input phx-change="handle_change" /> --%>
+
+    <.form id="my-form" phx-change="handle_change">
+      <input type="text" />
+      <button>Save</button>
+    </.form>
     """
   end
 
@@ -28,9 +34,9 @@ defmodule HelloWeb.ThermostatLive do
     {:noreply, update(socket, :temperature, &(&1 - 1))}
   end
 
-  def handle_event("name_change", _params, socket) do
-    value = &(&1)
-    Logger.info(value)
-    {:noreply, update(socket, :name, value)}
+  def handle_event("handle_change", _params, socket) do
+    Logger.info "changed"
+
+    {:noreply, socket}
   end
 end
