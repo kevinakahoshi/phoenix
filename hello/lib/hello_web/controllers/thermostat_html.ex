@@ -11,12 +11,9 @@ defmodule HelloWeb.ThermostatLive do
     </div>
 
     <p>Name: {@name}</p>
-    <input phx-change="handle_change" />
-
-    <%!-- <.form id="my-form" phx-change="handle_change">
-      <input type="text" />
-      <button>Save</button>
-    </.form> --%>
+    <.form phx-change="handle_change" id="name-form">
+      <input type="text" name="name" value={@name} />
+    </.form>
     """
   end
 
@@ -34,9 +31,9 @@ defmodule HelloWeb.ThermostatLive do
     {:noreply, update(socket, :temperature, &(&1 - 1))}
   end
 
-  def handle_event("handle_change", %{"name" => name}, socket) do
-    Logger.info "changed"
+  def handle_event("handle_change", %{"name" => name} = params, socket) do
+    Logger.info("handle_change params: #{inspect(params)}")
 
-    {:noreply, update(socket, :name, name)}
+    {:noreply, assign(socket, name: name)}
   end
 end
