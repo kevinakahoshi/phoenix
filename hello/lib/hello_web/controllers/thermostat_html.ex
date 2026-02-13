@@ -11,16 +11,20 @@ defmodule HelloWeb.ThermostatLive do
     </div>
 
     <p>Name: {@name}</p>
-    <.form phx-change="handle_change" id="name-form">
+    <form phx-change="handle_change" id="name-form">
       <input type="text" name="name" value={@name} />
-    </.form>
+    </form>
+
+    <p>Bool: {@bool}</p>
+    <button phx-click="toggle_bool">Click Me</button>
     """
   end
 
   def mount(_params, _session, socket) do
     temperature = 70 # Let's assume a fixed temperature for now
     name = ""
-    {:ok, assign(socket, temperature: temperature, name: name)}
+    bool = false
+    {:ok, assign(socket, temperature: temperature, name: name, bool: bool)}
   end
 
   def handle_event("inc_temperature", _params, socket) do
@@ -35,5 +39,9 @@ defmodule HelloWeb.ThermostatLive do
     Logger.info("handle_change params: #{inspect(params)}")
 
     {:noreply, assign(socket, name: name)}
+  end
+
+  def handle_event("toggle_bool", _params, socket) do
+    {:noreply, update(socket, :bool, &(!&1))}
   end
 end
