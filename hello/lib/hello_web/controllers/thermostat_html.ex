@@ -36,8 +36,6 @@ defmodule HelloWeb.ThermostatLive do
   end
 
   def handle_event("handle_change", %{"name" => name} = params, socket) do
-    Logger.info("handle_change params: #{inspect(params)}")
-
     {:noreply, assign(socket, name: name)}
   end
 
