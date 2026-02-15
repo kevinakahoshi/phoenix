@@ -21,7 +21,7 @@ defmodule HelloWeb.ThermostatLive do
   end
 
   def mount(_params, _session, socket) do
-    temperature = 70 # Let's assume a fixed temperature for now
+    temperature = 70
     name = ""
     bool = false
     {:ok, assign(socket, temperature: temperature, name: name, bool: bool)}
