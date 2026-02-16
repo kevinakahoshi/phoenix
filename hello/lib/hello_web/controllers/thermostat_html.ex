@@ -17,6 +17,12 @@ defmodule HelloWeb.ThermostatLive do
 
     <p>Bool: {@bool}</p>
     <button phx-click="toggle_bool">Click Me</button>
+
+    <p>Password</p>
+    <%!-- <.form>
+      <.input field={f[:password]} value={input_value(f[:password].value)} />
+      <.input field={f[:password_confirmation]} value={input_value(f[:password_confirmation].value)} />
+    </.form> --%>
     """
   end
 
@@ -24,7 +30,20 @@ defmodule HelloWeb.ThermostatLive do
     temperature = 70
     name = ""
     bool = false
-    {:ok, assign(socket, temperature: temperature, name: name, bool: bool)}
+
+    password = ""
+    password_confirmation = ""
+    {
+      :ok,
+      assign(
+        socket,
+        temperature: temperature,
+        name: name,
+        bool: bool,
+        password: password,
+        password_confirmation: password_confirmation
+      )
+    }
   end
 
   def handle_event("inc_temperature", _params, socket) do
