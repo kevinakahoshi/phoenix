@@ -26,8 +26,18 @@ defmodule HelloWeb.ThermostatLive do
     """
   end
 
-  def mount(_params, _session, socket) do
-    temperature = 70
+  defp parse_temp(nil, fallback), do: fallback
+  defp parse_temp(val, fallback) do
+    case Integer.parse(val) do
+      {n, _} -> n
+      :error -> fallback
+    end
+  end
+
+  def mount(params, _session, socket) do
+    temperature =
+      (params["temperature"] || params["temp"])
+      |> parse_temp(70)
     name = ""
     bool = false
 
