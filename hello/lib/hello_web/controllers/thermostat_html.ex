@@ -23,6 +23,8 @@ defmodule HelloWeb.ThermostatLive do
       <.input field={f[:password]} value={input_value(f[:password].value)} />
       <.input field={f[:password_confirmation]} value={input_value(f[:password_confirmation].value)} />
     </.form> --%>
+
+    <img src="/images/cat.jpg" style="max-width: 400px;" />
     """
   end
 
